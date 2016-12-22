@@ -149,7 +149,7 @@ ENTRYPOINT ["java","-jar","/app.jar"]	//启动时运行  java -jar app.jar.外�
 
 **RUN指令**: 
 
-​	可以在**编译镜像**时**(build)**执行命令	,例如在编译中下载redis,可在Dockerfile中加入
+​	可以在**构建 镜像**时**(build)**执行命令	,例如在构建中下载redis,可在Dockerfile中加入
 
 ```
 RUN yum -y install redis
@@ -159,7 +159,9 @@ RUN yum -y install redis
 
 **CMD指令：**
 
-​	只能有一个CMD指令，CMD在容器启动**(run)**后执行，例如,下面会在docker run xxx时执行
+​	只能有一个CMD指令，CMD在容器启动**(run)**后执行，例如,下面会在docker run xxx时执行。
+
+如果传入参数，例如docker run xxx paramter 将会执行ENTRYPOINT指令
 
 ```
 CMD echo "build docker started!"
@@ -169,4 +171,7 @@ CMD echo "build docker started!"
 
 **构建：**
 
+```
 docker build -t xxx
+```
+
