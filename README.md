@@ -8,9 +8,9 @@
 
 #### 1.CentOS安装docker
 
-yum update
+`yum update`
 
-yum install docker
+`yum install docker`
 
 
 
@@ -21,15 +21,15 @@ Aborted 需要卸载
 
 **解决办法：**
 
-yum remove docker
+`yum remove docker`
 
-yum install docker-io
+`yum install docker-io`
 
 
 
 **启动docker 服务**
 
-service docker start
+`service docker start`
 
 ------
 
@@ -39,7 +39,7 @@ service docker start
 
 ​	docker search 镜像名
 
-例如：docker search redis
+例如：`docker search redis`
 
 
 
@@ -47,23 +47,27 @@ service docker start
 
 ​	docker pull 镜像名
 
-例如：docker pull redis
+例如：`docker pull redis`
 
 
 
 **3）本地镜像列表**
 
-​	docker images
+​	`docker images`
 
 
 
 **4）镜像删除**
 
-​	docker rmi image-id（根据镜像ID删除）
+​	`docker rmi image-id`（根据镜像ID删除）
 
 ------
 
 #### 3.Docker容器命令
+
+> A *container* is a running instance of an image
+>
+> 运行中的镜像成为容器
 
 **1）运行容器**
 
@@ -73,7 +77,7 @@ service docker start
 
 ​	-d表示detached，意味着执行完这个命令后控制台不会被阻塞
 
-例如：docker run --name test-redis -d redis
+例如：`docker run --name test-redis -d redis`
 
 
 
@@ -81,15 +85,15 @@ service docker start
 
 ​	docker ps 
 
-​	docker ps -a 查看运行和停止的
+​	`docker ps -a` 查看运行和停止的
 
 
 
 **3）启动和停止容器**
 
-​	docker stop [container-name|container-id]   通过容器名称或者容器ID停止容器
+​	`docker stop [container-name|container-id]`   通过容器名称或者容器ID停止容器
 
-​	docker start[container-name|container-id]   通过容器名称或者容器ID启动容器
+​	`docker start[container-name|container-id]`   通过容器名称或者容器ID启动容器
 
 
 
@@ -105,9 +109,9 @@ service docker start
 
 **5）删除容器**
 
- 	docker rm container-id
+ 	`docker rm container-id`
 
-​	docker rm $(docker ps -a -q) 删除所有容器
+​	`docker rm $(docker ps -a -q)` 删除所有容器
 
 
 
@@ -115,7 +119,7 @@ service docker start
 
 ​	docker logs [contanier-id|contaner-name] 根据容器ID或容器名称查看日志
 
-例如:	docker logs test-redis
+例如:	`docker logs test-redis`
 
 
 
@@ -123,6 +127,6 @@ service docker start
 
 ​	运行中的容器其实是一个功能完备的Linux操作系统。
 
-​	docker exec -it [container-id|container-name] bash
+​	`docker exec -it [container-id|container-name] bash`
 
 ​	
