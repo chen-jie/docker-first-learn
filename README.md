@@ -130,3 +130,43 @@ Aborted 需要卸载
 ​	`docker exec -it [container-id|container-name] bash`
 
 ​	
+
+------
+
+#### 4.构建自己的Docker镜像
+
+**构建Docker需要编写Dockerfile文件**
+
+```
+FROM java:8								//基于java8镜像
+MAINTAINER max							//作者
+ADD test.jar app.jar					//将本机jar包添加到镜像中，并重名为app.jar
+EXPOSE 8080								//镜像运行时（容器），监听8080端口
+ENTRYPOINT ["java","-jar","/app.jar"]	//启动时运行  java -jar app.jar.外面docker传参数也是调用这个
+```
+
+其中还有
+
+**RUN指令**: 
+
+​	可以在**编译镜像**时**(build)**执行命令	,例如在编译中下载redis,可在Dockerfile中加入
+
+```
+RUN yum -y install redis
+```
+
+
+
+**CMD指令：**
+
+​	只能有一个CMD指令，CMD在容器启动**(run)**后执行，例如,下面会在docker run xxx时执行
+
+```
+CMD echo "build docker started!"
+```
+
+
+
+**构建：**
+
+docker build -t xxx
